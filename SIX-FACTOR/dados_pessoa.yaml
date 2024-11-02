@@ -1,0 +1,10 @@
+pessoa:
+  Nome: Amanda
+  Idade: 18
+  Nif: 123456789
+  Telefone: "+351 12345678"
+  Email: "abcd@gmail.com"  
+  Endereco:
+    rua: "Rua camoes"
+    numero: 15
+    complemento: "R/C direito"
