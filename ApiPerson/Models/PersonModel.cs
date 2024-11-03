@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 namespace ApiPerson.Models
 {
     public class PersonModel
@@ -10,6 +11,8 @@ namespace ApiPerson.Models
         public string Email { get; set; }
         public Endereco Endereco { get; set; }
     }
+    
+[Owned] // Preciso poque nao tenho id definido 
     public class Endereco
     {
         public string Rua { get; set; }

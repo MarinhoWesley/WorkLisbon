@@ -10,7 +10,7 @@ def main():
         yaml_data = yaml.safe_load(file)
         person_data = yaml_data['pessoa']
     
-    # 2. Preparar o dados no formato correto para a API
+    # 2. Preparar os dados para a API
     api_data = {
         "nome": person_data['Nome'],
         "idade": person_data['Idade'],
@@ -24,17 +24,17 @@ def main():
         }
     }
 
-    # 3. Enviar para a API (POST)
-    api_url = 'https://localhost:7068/api/person'  # Use a URL que funciona no Swagger
+    # 3. Enviar para a API
+    api_url = 'https://localhost:7068/api/person'
     try:
-        # Salvar pessoa - Note o verify=False aqui
+        # Salvar pessoa
         response = requests.post(api_url, json=api_data, verify=False)
-        if response.status_code == 201:
+        if response.status_code in [200, 201]:
             print("Pessoa salva com sucesso!")
             saved_person = response.json()
             person_id = saved_person['id']
             
-            # Buscar a pessoa salva (GET) - Note o verify=False aqui também
+            # Buscar a pessoa salva
             get_response = requests.get(f'{api_url}/{person_id}', verify=False)
             if get_response.status_code == 200:
                 print("\nDados recuperados do banco:")
